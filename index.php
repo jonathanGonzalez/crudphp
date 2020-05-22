@@ -76,6 +76,7 @@
                     <th>Placa</th>
                     <th>Denuncia</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 <?php
                 $servername = "localhost";
@@ -108,6 +109,7 @@
                     <td> <?php echo $row['tipo']; ?></td>
                     <td> <?php echo $row['placa']; ?></td>
                     <td> <?php echo $row['denuncia']; ?></td>
+                    <td><a href="editarDenuncia.php?id_para_editar=<?php echo $row['id_pk']; ?>">Editar</a></td>
                     <td><a href="eliminarDenuncia.php?id_para_borrar=<?php echo $row['id_pk']; ?>">eliminar</a></td>
                 </tr>
                 <?php
