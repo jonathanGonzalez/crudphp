@@ -95,7 +95,7 @@
                     echo "conexión establecida entre php y mysql</br>";
                 }
                 //crear sentencia sql
-                $sql = "SELECT * from denuncias";
+                $sql = "SELECT * from denuncias ORDER BY fecha DESC";
                 //lanzar la sentencia sql
                 $respuesta = $conn->query($sql);
                 while($row=$respuesta->fetch_array())
