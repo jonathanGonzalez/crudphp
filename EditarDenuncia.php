@@ -1,4 +1,5 @@
 <?php
+include_once('conexionbd.php');
 
 $id= $_POST['input_id'];
 $lugar = $_POST['input_lugar'];
@@ -23,22 +24,6 @@ echo "</br>";
 echo $denuncia;
 echo "</br>";
 
-//1. conexión entre nuestra app(php) y el servidor de bases de datos(mysql)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "denuncias_bd";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if($conn->connect_error)
-{
-    echo "mi conexión con la bd falló";
-    die("la conexión falló " . $conn->connect_error);
-}
-else
-{
-    echo "conexión establecida entre php y mysql</br>";
-}
 
 //2. sentencia sql (CRUD: Create, Read, Update, Delete)
 //$sql = "INSERT INTO denuncias (lugar, fecha, hora, tipo, placa, denuncia) VALUES ('".$lugar."', '".$fecha."', '".$hora."', '".$tipoVehiculo."', '".$placa."','".$denuncia."')";

@@ -1,22 +1,8 @@
 <?php
+    include_once('conexionbd.php');
 
     $id_denuncia_para_editar = $_GET['id_para_editar'];
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "denuncias_bd";
-    
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if($conn->connect_error)
-    {
-        //echo "mi conexión con la bd falló";
-        die("la conexión falló " . $conn->connect_error);
-    }
-    else
-    {
-        //echo "conexión establecida entre php y mysql</br>";
-    }
     //crear sentencia sql
     $sql = "SELECT * from denuncias where id_pk={$id_denuncia_para_editar}";
     //lanzar la sentencia sql
@@ -50,7 +36,61 @@
     </div>
     <div class="item-form">
         <label for="">Tipo de Vehículo:</label>
-        <input value="<?php echo $tipo; ?>" type="text" name="input_tipo" id="" required>
+        <!-- <input value="<?php echo $tipo; ?>" type="text" name="input_tipo" id="" required> -->
+        <select value="<?php echo $tipo; ?>" name="input_tipo" id="">
+        <?php
+        switch ($tipo) {
+            case 'Camión':
+                echo "
+                <option value='Camión' selected='selected'>Camión</option>
+                <option value='Carro particular'>Carro particular</option>
+                <option value='Volqueta'>Volqueta</option>
+                <option value='Motos'>Motos</option>
+                <option value='Transporte público'>Transporte público</option>";
+                break;
+            
+            case 'Carro particular':
+                echo "
+                <option value='Camión'>Camión</option>
+                <option value='Carro particular' selected='selected'>Carro particular</option>
+                <option value='Volqueta'>Volqueta</option>
+                <option value='Motos'>Motos</option>
+                <option value='Transporte público'>Transporte público</option>";
+                break;
+            
+            case 'Volqueta':
+                echo "
+                <option value='Camión'>Camión</option>
+                <option value='Carro particular'>Carro particular</option>
+                <option value='Volqueta' selected='selected'>Volqueta</option>
+                <option value='Motos'>Motos</option>
+                <option value='Transporte público'>Transporte público</option>";
+                break;
+
+            case 'Motos':
+                echo "
+                <option value='Camión'>Camión</option>
+                <option value='Carro particular'>Carro particular</option>
+                <option value='Volqueta'>Volqueta</option>
+                <option value='Motos' selected='selected'>Motos</option>
+                <option value='Transporte público'>Transporte público</option>";
+                break;
+
+            case 'Transporte público':
+                echo "
+                <option value='Camión'>Camión</option>
+                <option value='Carro particular'>Carro particular</option>
+                <option value='Volqueta'>Volqueta</option>
+                <option value='Motos'>Motos</option>
+                <option value='Transporte público' selected='selected'>Transporte público</option>";
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+         ?> 
+        </select>
     </div>
     <div class="item-form">
         <label for="">Placa:</label>
