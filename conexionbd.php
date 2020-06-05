@@ -14,7 +14,7 @@ if($conn->connect_error)
 }
 else
 {
-    echo "conexión establecida entre php y mysql</br>";
+    //echo "conexión establecida entre php y mysql</br>";
 }
 
 
